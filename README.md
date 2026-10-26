@@ -2,7 +2,7 @@
 
 ERP for small businesses, built with Next.js (App Router), TypeScript, Tailwind CSS and Supabase.
 
-> Status: early setup. Supabase is connected, the `businesses` and `profiles` tables are defined, and email + password sign-up, login and logout work (`/signup`, `/login`, `/dashboard`). No business features yet.
+> Status: early setup. Supabase is connected, the `businesses` and `profiles` tables are defined, email + password sign-up, login and logout work (`/signup`, `/login`, `/dashboard`), and logged-in users can create and edit their business profile with a logo (`/business`). No billing, items or other features yet.
 
 ## Project structure
 

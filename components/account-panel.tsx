@@ -1,33 +1,20 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Bilingual } from "@/components/bilingual";
-import { Message } from "@/components/auth-ui";
+import { LinkButton, Message } from "@/components/auth-ui";
 import { authErrorText, authText, type BilingualText } from "@/lib/auth-text";
+import { businessText } from "@/lib/business-text";
 import { getSupabaseClient } from "@/lib/supabase";
+import { useRequireUser } from "@/lib/use-require-user";
 
 /** Shows the logged-in email and a logout button. Sends guests to /login. */
 export function AccountPanel() {
   const router = useRouter();
-  const [email, setEmail] = useState<string | null>(null);
+  const user = useRequireUser();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<BilingualText | null>(null);
-
-  useEffect(() => {
-    const supabase = getSupabaseClient();
-
-    supabase.auth.getUser().then(({ data }) => {
-      if (data.user) setEmail(data.user.email ?? "");
-      else router.replace("/login");
-    });
-
-    // Also react to logout in another tab or an expired session.
-    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) router.replace("/login");
-    });
-    return () => data.subscription.unsubscribe();
-  }, [router]);
 
   async function handleLogout() {
     setBusy(true);
@@ -41,7 +28,7 @@ export function AccountPanel() {
     router.replace("/login");
   }
 
-  if (email === null) {
+  if (!user) {
     return <Bilingual text={authText.loading} className="text-sm opacity-70" />;
   }
 
@@ -49,8 +36,9 @@ export function AccountPanel() {
     <div className="flex flex-col gap-4">
       <div className="rounded-lg border border-zinc-200 px-3 py-3 dark:border-zinc-800">
         <Bilingual text={authText.loggedInAs} className="text-sm" />
-        <p className="mt-1 break-all font-medium">{email}</p>
+        <p className="mt-1 break-all font-medium">{user.email}</p>
       </div>
+      <LinkButton href="/business" text={businessText.openBusinessProfile} />
       {error && <Message text={error} tone="error" />}
       <button
         type="button"

@@ -2,7 +2,7 @@
 
 ERP for small businesses, built with Next.js (App Router), TypeScript, Tailwind CSS and Supabase.
 
-> Status: initial scaffold. No features, database tables or authentication yet.
+> Status: early setup. Supabase is connected and the `businesses` and `profiles` tables are defined. No login pages or features yet.
 
 ## Project structure
 
@@ -10,6 +10,7 @@ ERP for small businesses, built with Next.js (App Router), TypeScript, Tailwind 
 app/          Routes, layouts and global styles (App Router)
 components/   Reusable UI components
 lib/          Supabase client (supabase.ts) and shared utilities (utils.ts)
+supabase/     SQL migrations
 public/       Static assets
 ```
 
@@ -46,6 +47,18 @@ Prerequisites: Node.js 20.9 or later and npm.
    ```
 
 5. Open http://localhost:3000.
+
+## Database
+
+SQL migrations live in `supabase/migrations/`. To apply them, open your
+Supabase project → **SQL Editor** → **New query**, paste the contents of each
+migration file in filename order, and click **Run**.
+
+Then open http://localhost:3000/test-connection. It shows **Connected** once
+the app can reach Supabase and the `businesses` table exists.
+
+Row-level security is enabled on every table: a signed-in user can only read
+and change rows that belong to their own business.
 
 ## Scripts
 

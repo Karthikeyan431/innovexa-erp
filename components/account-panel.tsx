@@ -6,6 +6,7 @@ import { Bilingual } from "@/components/bilingual";
 import { LinkButton, Message } from "@/components/auth-ui";
 import { authErrorText, authText, type BilingualText } from "@/lib/auth-text";
 import { businessText } from "@/lib/business-text";
+import { itemsText } from "@/lib/items-text";
 import { getSupabaseClient } from "@/lib/supabase";
 import { useRequireUser } from "@/lib/use-require-user";
 
@@ -38,7 +39,8 @@ export function AccountPanel() {
         <Bilingual text={authText.loggedInAs} className="text-sm" />
         <p className="mt-1 break-all font-medium">{user.email}</p>
       </div>
-      <LinkButton href="/business" text={businessText.openBusinessProfile} />
+      <LinkButton href="/items" text={itemsText.openItems} />
+      <LinkButton href="/business" text={businessText.openBusinessProfile} variant="secondary" />
       {error && <Message text={error} tone="error" />}
       <button
         type="button"

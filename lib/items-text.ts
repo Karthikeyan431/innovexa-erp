@@ -1,0 +1,73 @@
+import type { BilingualText } from "@/lib/auth-text";
+
+export const itemsText = {
+  pageTitle: { ta: "பொருட்கள்", en: "Items" },
+  openItems: { ta: "பொருட்கள்", en: "Items" },
+  addItem: { ta: "புதிய பொருள் சேர்", en: "Add item" },
+  newItemTitle: { ta: "புதிய பொருள்", en: "New item" },
+  editItemTitle: { ta: "பொருளைத் திருத்து", en: "Edit item" },
+  name: { ta: "பொருளின் பெயர்", en: "Item name" },
+  category: { ta: "வகை", en: "Category" },
+  categoryHint: { ta: "எ.கா. மளிகை, பானங்கள்", en: "e.g. Grocery, Drinks" },
+  unit: { ta: "அலகு", en: "Unit" },
+  purchasePrice: { ta: "வாங்கும் விலை (₹)", en: "Purchase price (₹)" },
+  sellingPrice: { ta: "விற்கும் விலை (₹)", en: "Selling price (₹)" },
+  gstRate: { ta: "GST %", en: "GST %" },
+  gstHint: { ta: "எ.கா. 0, 5, 18", en: "e.g. 0, 5, 18" },
+  optional: { ta: "விருப்பத்தேர்வு", en: "Optional" },
+  saveNew: { ta: "பொருளைச் சேர்", en: "Add item" },
+  saveEdit: { ta: "மாற்றங்களைச் சேமி", en: "Save changes" },
+  cancel: { ta: "ரத்து செய்", en: "Cancel" },
+  edit: { ta: "திருத்து", en: "Edit" },
+  delete: { ta: "நீக்கு", en: "Delete" },
+  confirmDelete: { ta: "உறுதியாக நீக்கவா? மீண்டும் தட்டவும்", en: "Delete for sure? Tap again" },
+  emptyList: {
+    ta: "இன்னும் பொருட்கள் இல்லை. முதல் பொருளைச் சேர்க்கவும்.",
+    en: "No items yet. Add your first item.",
+  },
+  itemCount: { ta: "பொருட்கள்", en: "items" },
+  noUnitPrice: { ta: "—", en: "—" },
+  buy: { ta: "வாங்க", en: "Buy" },
+  sell: { ta: "விற்க", en: "Sell" },
+  created: { ta: "பொருள் சேர்க்கப்பட்டது.", en: "Item added." },
+  saved: { ta: "மாற்றங்கள் சேமிக்கப்பட்டன.", en: "Changes saved." },
+  deleted: { ta: "பொருள் நீக்கப்பட்டது.", en: "Item deleted." },
+  needBusiness: {
+    ta: "பொருட்களைச் சேர்க்கும் முன் உங்கள் வணிக சுயவிவரத்தை அமைக்கவும்.",
+    en: "Set up your business profile before adding items.",
+  },
+  openBusinessProfile: { ta: "வணிக சுயவிவரம்", en: "Business profile" },
+  backToDashboard: { ta: "முகப்புக்குத் திரும்பு", en: "Back to dashboard" },
+  nameRequired: { ta: "பொருளின் பெயரை உள்ளிடவும்.", en: "Enter the item name." },
+  invalidPrice: {
+    ta: "சரியான விலையை உள்ளிடவும் (எ.கா. 45 அல்லது 45.50).",
+    en: "Enter a valid price (e.g. 45 or 45.50).",
+  },
+  sellingPriceRequired: { ta: "விற்கும் விலையை உள்ளிடவும்.", en: "Enter the selling price." },
+  invalidGst: {
+    ta: "GST % 0 முதல் 100 வரை இருக்க வேண்டும்.",
+    en: "GST % must be between 0 and 100.",
+  },
+  duplicateName: {
+    ta: "இதே பெயரில் ஏற்கனவே ஒரு பொருள் உள்ளது.",
+    en: "An item with this name already exists.",
+  },
+  loadFailed: {
+    ta: "பொருட்களை ஏற்ற முடியவில்லை. பக்கத்தைப் புதுப்பிக்கவும்.",
+    en: "Could not load items. Please refresh the page.",
+  },
+  saveFailed: { ta: "சேமிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.", en: "Could not save. Please try again." },
+  deleteFailed: { ta: "நீக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.", en: "Could not delete. Please try again." },
+} satisfies Record<string, BilingualText>;
+
+export const unitText: Record<string, BilingualText> = {
+  pcs: { ta: "எண்ணிக்கை", en: "Pieces (pcs)" },
+  kg: { ta: "கிலோ", en: "Kilogram (kg)" },
+  g: { ta: "கிராம்", en: "Gram (g)" },
+  l: { ta: "லிட்டர்", en: "Litre (l)" },
+  ml: { ta: "மில்லி லிட்டர்", en: "Millilitre (ml)" },
+  m: { ta: "மீட்டர்", en: "Metre (m)" },
+  box: { ta: "பெட்டி", en: "Box" },
+  pack: { ta: "பாக்கெட்", en: "Pack" },
+  dozen: { ta: "டஜன்", en: "Dozen" },
+};

@@ -80,6 +80,18 @@ export function TextAreaField({ label, hint, error, id, className, ...textareaPr
   );
 }
 
+type SelectFieldProps = { label: BilingualText; hint?: BilingualText; error?: BilingualText } & ComponentProps<"select">;
+
+export function SelectField({ label, hint, error, id, className, children, ...selectProps }: SelectFieldProps) {
+  return (
+    <FieldShell id={id} label={label} hint={hint} error={error}>
+      <select id={id} aria-invalid={error ? true : undefined} className={cn("min-h-12", controlClass, className)} {...selectProps}>
+        {children}
+      </select>
+    </FieldShell>
+  );
+}
+
 /** A link styled like a full-width button. */
 export function LinkButton({ href, text, variant = "primary" }: { href: string; text: BilingualText; variant?: "primary" | "secondary" }) {
   return (
